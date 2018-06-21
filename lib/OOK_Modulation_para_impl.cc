@@ -45,7 +45,7 @@ namespace gr {
     {
 	d_max(max);
 	d_min(min);
-	d_interpolation(interpolation)
+	d_interpolation(interpolation);
 	}
 
     /*
