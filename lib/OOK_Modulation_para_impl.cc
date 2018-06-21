@@ -29,21 +29,22 @@ namespace gr {
   namespace Test_Modulation_Parameters {
 
     OOK_Modulation_para::sptr
-    OOK_Modulation_para::make(float max;) // later put ",min" right here
+    OOK_Modulation_para::make(float max, min;) // later put ",min" right here
     {
       return gnuradio::get_initial_sptr
-        (new OOK_Modulation_para_impl(max)); // and ",min" right here too
+        (new OOK_Modulation_para_impl(max, min)); // and ",min" right here too
     }
 
     /*
      * The private constructor
      */
-    OOK_Modulation_para_impl::OOK_Modulation_para_impl(float max)
+    OOK_Modulation_para_impl::OOK_Modulation_para_impl(float max, min) // Add ",min"
       : gr::sync_interpolator("OOK_Modulation_para",
               gr::io_signature::make(1, 1, sizeof(float)),
               gr::io_signature::make(1, 1, sizeof(float)), 2)
     {
 	d_max(max);
+	d_min(min);
 	}
 
     /*
@@ -67,7 +68,7 @@ namespace gr {
 
 	while(i < noutput_items) {  
 		if (in[j] < 0.5)		// j is for input
-			{ out[i++] = 2;		// i is for output
+			{ out[i++] = min();		// i is for output
 			  ctr++;
 			 if (ctr >= 2)  {	// This if statement is for counting so that 1 input produces 2 outputs
 			  ctr = 0;

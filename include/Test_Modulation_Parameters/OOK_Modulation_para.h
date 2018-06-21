@@ -46,9 +46,11 @@ namespace gr {
        * class. Test_Modulation_Parameters::OOK_Modulation_para::make is the public interface for
        * creating new instances.
        */
-      static sptr make(float max);
+      static sptr make(float max,min);
 	virtual void d_max(float max) = 0;
 	virtual float max() = 0;
+	virtual void d_min(float min) = 0;
+	virtual float min() = 0;
 
     };
 
