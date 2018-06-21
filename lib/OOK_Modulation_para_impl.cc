@@ -75,7 +75,7 @@ namespace gr {
 					}
 			}
 		if (in[j] > 0.5)
-			{ out[i++] = max;
+			{ out[i++] = max();
 			  ctr++;
 			 if (ctr >= 2)  {
 			  ctr = 0;
