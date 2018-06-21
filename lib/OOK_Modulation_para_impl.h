@@ -28,18 +28,21 @@ namespace gr {
 
     class OOK_Modulation_para_impl : public OOK_Modulation_para
     {
-     private:
+     private:		//MODIFY THIS TO ADD PARAMETERS
       float my_max;
       float my_min;
+      float my_interpolation;
 
      public:
-      OOK_Modulation_para_impl(float max,float min); //MODIFY THIS TO ADD PARAMETERS
+      OOK_Modulation_para_impl(float max,float min,float interpolation); //MODIFY THIS TO ADD PARAMETERS
       ~OOK_Modulation_para_impl();
 
 	void d_max(float max) {my_max = max;}
 	float max() {return my_max;}
 	void d_min(float min) {my_min = min;}
 	float min() {return my_min;}
+	void d_interpolation(float interpolation) {my_interpolation = interpolation;}
+	float interpolation() {return my_interpolation;}
 
       // Where all the action really happens
       int work(int noutput_items,
