@@ -30,16 +30,16 @@ namespace gr {
     {
      private:
       float my_max;
-	float my_min;
+      float my_min;
 
      public:
-      OOK_Modulation_para_impl(float max,min);
+      OOK_Modulation_para_impl(float max,float min);
       ~OOK_Modulation_para_impl();
 
 	void d_max(float max) {my_max = max;}
 	float max() {return my_max;}
 	void d_min(float min) {my_min = min;}
-	float min() {return my_max;}
+	float min() {return my_min;}
 
       // Where all the action really happens
       int work(int noutput_items,

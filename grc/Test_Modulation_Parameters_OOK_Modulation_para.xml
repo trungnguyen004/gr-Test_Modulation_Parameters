@@ -4,7 +4,7 @@
   <key>Test_Modulation_Parameters_OOK_Modulation_para</key>
   <category>[Test_Modulation_Parameters]</category>
   <import>import Test_Modulation_Parameters</import>
-  <make>Test_Modulation_Parameters.OOK_Modulation_para($max)</make>
+  <make>Test_Modulation_Parameters.OOK_Modulation_para($max, $min)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
@@ -15,6 +15,14 @@
     <key>max</key>
     <type>float</type>
   </param>
+
+<param>
+    <name>Min</name>
+    <key>min</key>
+    <type>float</type>
+  </param>
+
+
 
   <!-- Make one 'sink' node per input. Sub-nodes:
        * name (an identifier for the GUI)
