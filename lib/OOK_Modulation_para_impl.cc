@@ -71,7 +71,7 @@ namespace gr {
 		if (in[j] < 0.5)		// j is for input
 			{ out[i++] = min();		// i is for output
 			  ctr++;
-			 if (ctr >= 2)  {	// This if statement is for counting so that 1 input produces 2 outputs
+			 if (ctr >= interpolation())  {	// This if statement is for counting so that 1 input produces 2 outputs
 			  ctr = 0;
 			  j++;
 					}
@@ -79,7 +79,7 @@ namespace gr {
 		if (in[j] > 0.5)
 			{ out[i++] = max();
 			  ctr++;
-			 if (ctr >= 2)  {
+			 if (ctr >= interpolation())  {
 			  ctr = 0;
 			  j++;
 					}
