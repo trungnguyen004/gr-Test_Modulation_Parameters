@@ -33,7 +33,7 @@ namespace gr {
       float my_min;
 
      public:
-      OOK_Modulation_para_impl(float max,float min);
+      OOK_Modulation_para_impl(float max,float min); //MODIFY THIS TO ADD PARAMETERS
       ~OOK_Modulation_para_impl();
 
 	void d_max(float max) {my_max = max;}

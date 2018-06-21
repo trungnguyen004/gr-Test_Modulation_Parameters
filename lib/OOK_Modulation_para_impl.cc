@@ -29,16 +29,16 @@ namespace gr {
   namespace Test_Modulation_Parameters {
 
     OOK_Modulation_para::sptr
-    OOK_Modulation_para::make(float max, float min) // later put ",min" right here
+    OOK_Modulation_para::make(float max, float min) // MODIFY THIS TO ADD PARAMETERS
     {
       return gnuradio::get_initial_sptr
-        (new OOK_Modulation_para_impl(max, min)); // and ",min" right here too
+        (new OOK_Modulation_para_impl(max, min)); // MODIFY THIS TO ADD PARAMETERS
     }
 
     /*
      * The private constructor
      */
-    OOK_Modulation_para_impl::OOK_Modulation_para_impl(float max,float min) // Add ",min"
+    OOK_Modulation_para_impl::OOK_Modulation_para_impl(float max,float min) // MODIFY THIS TO ADD PARAMETERS
       : gr::sync_interpolator("OOK_Modulation_para",
               gr::io_signature::make(1, 1, sizeof(float)),
               gr::io_signature::make(1, 1, sizeof(float)), 2)

@@ -4,19 +4,20 @@
   <key>Test_Modulation_Parameters_OOK_Modulation_para</key>
   <category>[Test_Modulation_Parameters]</category>
   <import>import Test_Modulation_Parameters</import>
-  <make>Test_Modulation_Parameters.OOK_Modulation_para($max, $min)</make>
-  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+  <make>Test_Modulation_Parameters.OOK_Modulation_para($max, $min)</make> <!-- MODIFY THIS TO ADD PARAMETERS -->
+  
+<!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
        * key (makes the value accessible as $keyname, e.g. in the make node)
        * type -->
-  <param>
+  <param> <!-- MODIFY THIS TO ADD PARAMETERS -->
     <name>Max</name>
     <key>max</key>
     <type>float</type>
   </param>
 
-<param>
+<param>	<!-- MODIFY THIS TO ADD PARAMETERS -->
     <name>Min</name>
     <key>min</key>
     <type>float</type>
