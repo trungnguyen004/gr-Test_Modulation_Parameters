@@ -9,8 +9,11 @@
 
 %{
 #include "Test_Modulation_Parameters/OOK_Modulation_para.h"
+#include "Test_Modulation_Parameters/PAM_Modulation_para.h"
 %}
 
 
 %include "Test_Modulation_Parameters/OOK_Modulation_para.h"
 GR_SWIG_BLOCK_MAGIC2(Test_Modulation_Parameters, OOK_Modulation_para);
+%include "Test_Modulation_Parameters/PAM_Modulation_para.h"
+GR_SWIG_BLOCK_MAGIC2(Test_Modulation_Parameters, PAM_Modulation_para);

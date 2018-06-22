@@ -19,11 +19,11 @@
  */
 
 
-#ifndef INCLUDED_TEST_MODULATION_PARAMETERS_OOK_MODULATION_PARA_H
-#define INCLUDED_TEST_MODULATION_PARAMETERS_OOK_MODULATION_PARA_H
+#ifndef INCLUDED_TEST_MODULATION_PARAMETERS_PAM_MODULATION_PARA_H
+#define INCLUDED_TEST_MODULATION_PARAMETERS_PAM_MODULATION_PARA_H
 
 #include <Test_Modulation_Parameters/api.h>
-#include <gnuradio/sync_interpolator.h>
+#include <gnuradio/sync_decimator.h>
 
 namespace gr {
   namespace Test_Modulation_Parameters {
@@ -33,31 +33,33 @@ namespace gr {
      * \ingroup Test_Modulation_Parameters
      *
      */
-    class TEST_MODULATION_PARAMETERS_API OOK_Modulation_para : virtual public gr::sync_interpolator
+    class TEST_MODULATION_PARAMETERS_API PAM_Modulation_para : virtual public gr::sync_decimator
     {
      public:
-      typedef boost::shared_ptr<OOK_Modulation_para> sptr;
+      typedef boost::shared_ptr<PAM_Modulation_para> sptr;
 
       /*!
-       * \brief Return a shared_ptr to a new instance of Test_Modulation_Parameters::OOK_Modulation_para.
+       * \brief Return a shared_ptr to a new instance of Test_Modulation_Parameters::PAM_Modulation_para.
        *
-       * To avoid accidental use of raw pointers, Test_Modulation_Parameters::OOK_Modulation_para's
+       * To avoid accidental use of raw pointers, Test_Modulation_Parameters::PAM_Modulation_para's
        * constructor is in a private implementation
-       * class. Test_Modulation_Parameters::OOK_Modulation_para::make is the public interface for
+       * class. Test_Modulation_Parameters::PAM_Modulation_para::make is the public interface for
        * creating new instances.
        */
-      static sptr make(float max,float min, float interpolation);	//MODIFY THIS TO ADD PARAMETERS
-	virtual void d_max(float max) = 0;
-	virtual float max() = 0;
-	virtual void d_min(float min) = 0;
-	virtual float min() = 0;
-	virtual void d_interpolation(float interpolation) = 0;
-	virtual float interpolation() = 0;
+      static sptr make(float val00, float val01, float val10, float val11);
+	virtual void d_val00(float val00) = 0;
+	virtual float val00() =0;
+	virtual void d_val01(float val01) = 0;
+	virtual float val01() =0;
+	virtual void d_val10(float val10) = 0;
+	virtual float val10() =0;
+	virtual void d_val11(float val11) = 0;
+	virtual float val11() =0;
 
     };
 
   } // namespace Test_Modulation_Parameters
 } // namespace gr
 
-#endif /* INCLUDED_TEST_MODULATION_PARAMETERS_OOK_MODULATION_PARA_H */
+#endif /* INCLUDED_TEST_MODULATION_PARAMETERS_PAM_MODULATION_PARA_H */
 

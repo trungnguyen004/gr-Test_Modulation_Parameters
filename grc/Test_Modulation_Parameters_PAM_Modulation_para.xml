@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<block>
+  <name>PAM_Modulation_para</name>
+  <key>Test_Modulation_Parameters_PAM_Modulation_para</key>
+  <category>[Test_Modulation_Parameters]</category>
+  <import>import Test_Modulation_Parameters</import>
+  <make>Test_Modulation_Parameters.PAM_Modulation_para($val00, $val01, $val10, $val11)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Value for 00</name>
+    <key>val00</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 01</name>
+    <key>val01</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 10</name>
+    <key>val10</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 11</name>
+    <key>val11</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>

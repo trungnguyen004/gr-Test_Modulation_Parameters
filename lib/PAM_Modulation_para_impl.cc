@@ -23,68 +23,68 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "OOK_Modulation_para_impl.h"
+#include "PAM_Modulation_para_impl.h"
 
 namespace gr {
   namespace Test_Modulation_Parameters {
 
-    OOK_Modulation_para::sptr
-    OOK_Modulation_para::make(float max, float min, float interpolation) // MODIFY THIS TO ADD PARAMETERS
+    PAM_Modulation_para::sptr
+    PAM_Modulation_para::make(float val00, float val01, float val10, float val11)
     {
       return gnuradio::get_initial_sptr
-        (new OOK_Modulation_para_impl(max, min, interpolation)); // MODIFY THIS TO ADD PARAMETERS
+        (new PAM_Modulation_para_impl(val00,val01,val10,val11));
     }
 
     /*
      * The private constructor
      */
-    OOK_Modulation_para_impl::OOK_Modulation_para_impl(float max,float min,float interpolation) // MODIFY THIS TO ADD PARAMETERS
-      : gr::sync_interpolator("OOK_Modulation_para",
+    PAM_Modulation_para_impl::PAM_Modulation_para_impl(float val00, float val01, float val10, float val11)
+      : gr::sync_decimator("PAM_Modulation_para",
               gr::io_signature::make(1, 1, sizeof(float)),
-              gr::io_signature::make(1, 1, sizeof(float)), interpolation)
-    {				// MODIFY THIS TO ADD PARAMETERS
-	d_max(max);
-	d_min(min);
-	d_interpolation(interpolation);
+              gr::io_signature::make(1, 1, sizeof(float)), 2) //Later on, if the number of bits change, change this
+    {
+	d_val00(val00);	
+	d_val01(val01);
+	d_val10(val10);
+	d_val11(val11);
+
 	}
 
     /*
      * Our virtual destructor.
      */
-    OOK_Modulation_para_impl::~OOK_Modulation_para_impl()
+    PAM_Modulation_para_impl::~PAM_Modulation_para_impl()
     {
     }
 
     int
-    OOK_Modulation_para_impl::work(int noutput_items,
+    PAM_Modulation_para_impl::work(int noutput_items,
         gr_vector_const_void_star &input_items,
         gr_vector_void_star &output_items)
     {
       const float *in = (const float *) input_items[0];
       float *out = (float *) output_items[0];
 
-	int i=0;
-	int j=0;
-	int ctr=0;
+      int i = 0;
+      int j = 0;
+      int ctr = 0;
+      
+      while(i < noutput_items) {
+	if(in[j] < 0.5 and in[j+1] < 0.5)
+		{ out[i++] = val00();
+		  j+=2;}
+	if(in[j] < 0.5 and in[j+1] > 0.5)
+		{ out[i++] = val01();
+		  j+=2;}
+	if(in[j] > 0.5 and in[j+1] < 0.5)
+		{ out[i++] = val10();
+		  j+=2;}
+	if(in[j] > 0.5 and in[j+1] > 0.5)
+		{ out[i++] = val11();
+		  j+=2;}
+	
 
-	while(i < noutput_items) {  
-		if (in[j] < 0.5)		// j is for input
-			{ out[i++] = min();		// i is for output
-			  ctr++;
-			 if (ctr >= interpolation())  {	// This if statement is for counting so that 1 input produces 2 outputs
-			  ctr = 0;
-			  j++;
-					}
-			}
-		if (in[j] > 0.5)
-			{ out[i++] = max();
-			  ctr++;
-			 if (ctr >= interpolation())  {
-			  ctr = 0;
-			  j++;
-					}
-			}
-				}	
+      }
 
       // Do <+signal processing+>
 

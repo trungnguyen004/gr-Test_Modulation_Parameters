@@ -19,5 +19,6 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    Test_Modulation_Parameters_OOK_Modulation_para.xml DESTINATION share/gnuradio/grc/blocks
+    Test_Modulation_Parameters_OOK_Modulation_para.xml
+    Test_Modulation_Parameters_PAM_Modulation_para.xml DESTINATION share/gnuradio/grc/blocks
 )

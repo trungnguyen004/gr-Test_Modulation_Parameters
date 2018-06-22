@@ -28,6 +28,7 @@ link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND Test_Modulation_Parameters_sources
     OOK_Modulation_para_impl.cc
+    PAM_Modulation_para_impl.cc
 )
 
 set(Test_Modulation_Parameters_sources "${Test_Modulation_Parameters_sources}" PARENT_SCOPE)
