@@ -24,5 +24,6 @@
 install(FILES
     api.h
     OOK_Modulation_para.h
-    PAM_Modulation_para.h DESTINATION include/Test_Modulation_Parameters
+    PAM_Modulation_para.h
+    OOK_Demodulation_para.h DESTINATION include/Test_Modulation_Parameters
 )
