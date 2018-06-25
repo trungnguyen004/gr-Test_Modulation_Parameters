@@ -4,7 +4,7 @@
   <key>Test_Modulation_Parameters_OOK_Demodulation_para</key>
   <category>[Test_Modulation_Parameters]</category>
   <import>import Test_Modulation_Parameters</import>
-  <make>Test_Modulation_Parameters.OOK_Demodulation_para()</make>
+  <make>Test_Modulation_Parameters.OOK_Demodulation_para($thresthold)</make>
   
 <param> <!-- MODIFY THIS TO ADD PARAMETERS -->
     <name>Thresthold</name>
