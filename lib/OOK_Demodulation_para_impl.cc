@@ -29,7 +29,7 @@ namespace gr {
   namespace Test_Modulation_Parameters {
 
     OOK_Demodulation_para::sptr
-    OOK_Demodulation_para::make(float thresthold) // There may be a ";" 
+    OOK_Demodulation_para::make(float thresthold;) // There may be a ";" 
     {
       return gnuradio::get_initial_sptr
         (new OOK_Demodulation_para_impl(thresthold));
