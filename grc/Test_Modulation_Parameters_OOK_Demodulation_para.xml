@@ -6,6 +6,11 @@
   <import>import Test_Modulation_Parameters</import>
   <make>Test_Modulation_Parameters.OOK_Demodulation_para()</make>
   
+<param> <!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Thresthold</name>
+    <key>thresthold</key>
+    <type>float</type>
+  </param>
   
 
   <!-- Make one 'sink' node per input. Sub-nodes:
