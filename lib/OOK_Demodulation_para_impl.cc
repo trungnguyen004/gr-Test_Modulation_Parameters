@@ -29,7 +29,7 @@ namespace gr {
   namespace Test_Modulation_Parameters {
 
     OOK_Demodulation_para::sptr
-    OOK_Demodulation_para::make(float thresthold;) // There may be a ";" 
+    OOK_Demodulation_para::make(float thresthold) // There may be a ";" 
     {
       return gnuradio::get_initial_sptr
         (new OOK_Demodulation_para_impl(thresthold));
@@ -56,7 +56,7 @@ namespace gr {
     void
     OOK_Demodulation_para_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
     {
-      ninput_items_required[0] = noutput_items
+      ninput_items_required[0] = noutput_items;
     }
 
     int
@@ -73,7 +73,7 @@ namespace gr {
 		{out[i] = 0;}
 	 if (in[i] >= thresthold())
 		{out[i] = 1;}
-	
+	}
 
      
       // Tell runtime system how many input items we consumed on
